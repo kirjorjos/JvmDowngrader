@@ -281,6 +281,7 @@ val downgradeJar21 = downgradeApi(JavaVersion.VERSION_21)
 val downgradeJar17 = downgradeApi(JavaVersion.VERSION_17)
 val downgradeJar11 = downgradeApi(JavaVersion.VERSION_11)
 val downgradeJar8 = downgradeApi(JavaVersion.VERSION_1_8)
+val downgradeJar7 = downgradeApi(JavaVersion.VERSION_1_7)
 
 tasks.assemble {
     dependsOn(downgradeJar25)
@@ -288,6 +289,7 @@ tasks.assemble {
     dependsOn(downgradeJar17)
     dependsOn(downgradeJar11)
     dependsOn(downgradeJar8)
+    dependsOn(downgradeJar7)
 }
 
 
@@ -332,6 +334,10 @@ publishing {
 
             artifact(downgradeJar8) {
                 classifier = "downgraded-8"
+            }
+
+            artifact(downgradeJar7) {
+                classifier = "downgraded-7"
             }
         }
     }
